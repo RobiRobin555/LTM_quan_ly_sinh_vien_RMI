@@ -1,11 +1,8 @@
 package service;
-
 import model.Student;
 import util.TxtHelper;
-
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.ArrayList;
 import java.util.List;
 
 public class StudentServiceImpl extends UnicastRemoteObject implements StudentService {

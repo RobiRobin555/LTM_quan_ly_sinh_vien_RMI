@@ -23,7 +23,7 @@ public class ServerMain {
 
             // Đăng ký đối tượng với RMI Registry qua URL
             String url = "rmi://localhost:1099/StudentService";
-            Naming.rebind(url, studentService);
+            Naming.bind(url, studentService);
 
             System.out.println(">>> Server đã khởi động và bind service tại: " + url);
 

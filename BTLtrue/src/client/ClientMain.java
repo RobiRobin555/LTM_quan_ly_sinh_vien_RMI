@@ -8,7 +8,7 @@ import client.gui.StudentManagementUI;
 public class ClientMain {
     public static void main(String[] args) {
         try {
-            // URL của service (phải khớp với bên ServerMain)
+            // URL của server
             String url = "rmi://localhost:1099/StudentService";
 
             // Lookup đối tượng từ RMI Registry
