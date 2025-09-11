@@ -29,8 +29,58 @@ Dự án không chỉ mang tính thực hành trong việc áp dụng RMI và Se
 ## 🔧 2. Ngôn ngữ lập trình sử dụng: [![Java](https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white)](https://www.java.com/)
 
 ## 🚀 3. Cấu trúc dự án 
+QuanLySinhVienRMI/
+├─ src/
+│ ├─ model/Student.java
+│ ├─ service/StudentService.java
+│ ├─ service/StudentServiceImpl.java
+│ ├─ util/TxtHelper.java
+│ ├─ server/ServerMain.java
+│ ├─ client/ClientMain.java
+│ └─ client/gui/
+│ ├─ StudentManagementUI.java
+│ ├─ StudentFormDialog.java
+│ └─ StudentTableModel.java
+├─ data/students.txt
+└─ README.md
 
-## 📝 4. License
+
+- **model**: chứa lớp `Student`, đối tượng dữ liệu truyền qua mạng.  
+- **service**: định nghĩa và hiện thực interface RMI (`StudentService`, `StudentServiceImpl`).  
+- **util**: lớp hỗ trợ đọc/ghi dữ liệu từ file TXT (`TxtHelper`).  
+- **server**: khởi động server, tạo RMI Registry, bind service (`ServerMain`).  
+- **client**: điểm vào ứng dụng phía client (`ClientMain`), giao diện Swing trong `client.gui`.  
+- **data**: thư mục lưu trữ dữ liệu sinh viên (`students.txt`).  
+
+## ⚡ 4. Hướng dẫn chạy nhanh (Quick Start)
+
+1. **Chuẩn bị môi trường**  
+   - Cài đặt [Java JDK 11+](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html).  
+   - IDE khuyến nghị: [Eclipse](https://www.eclipse.org/) hoặc IntelliJ IDEA.  
+
+2. **Khởi động Server**  
+   - Mở lớp `ServerMain` trong package `server`.  
+   - Chạy `Run As → Java Application`.  
+   - Console sẽ hiển thị:  
+     ```
+     >>> RMI Registry đã được khởi tạo tại cổng 1099.
+     >>> Server đã khởi động và bind service tại: rmi://localhost:1099/StudentService
+     ```
+
+3. **Khởi động Client**  
+   - Mở lớp `ClientMain` trong package `client`.  
+   - Chạy `Run As → Java Application`.  
+   - Giao diện quản lý sinh viên sẽ xuất hiện, cho phép thêm, sửa, xóa, tìm kiếm và hiển thị danh sách.
+
+4. **Kiểm tra dữ liệu**  
+   - Các thao tác CRUD sẽ cập nhật vào tệp `data/students.txt`.  
+   - Có thể mở file bằng Notepad hoặc một trình soạn thảo để kiểm tra dữ liệu.
+
+## 📝 5. License
+© 2025 AIoTLab, Faculty of Information Technology, DaiNam University. All rights reserved.
+
+---
+
 
 © 2025 AIoTLab, Faculty of Information Technology, DaiNam University. All rights reserved.
 
