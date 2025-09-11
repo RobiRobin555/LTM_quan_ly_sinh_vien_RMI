@@ -29,20 +29,6 @@ Dự án không chỉ mang tính thực hành trong việc áp dụng RMI và Se
 ## 🔧 2. Ngôn ngữ lập trình sử dụng: [![Java](https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white)](https://www.java.com/)
 
 ## 🚀 3. Cấu trúc dự án 
-QuanLySinhVienRMI/
-    ├─ src/
-    │  ├─ model/Student.java
-    │  ├─ service/StudentService.java
-    │  ├─ service/StudentServiceImpl.java
-    │  ├─ server/ServerMain.java
-    │  ├─ client/ClientMain.java
-    │  └─ client/gui/
-    │        ├─ StudentManagementUI.java
-    │     ├─ StudentFormDialog.java
-    │     └─ StudentTableModel.java
-    │  └─ util/TxtHelper.java
-    ├─ data/students.txt
-    └─ README.md
 
 ## 📝 4. License
 
