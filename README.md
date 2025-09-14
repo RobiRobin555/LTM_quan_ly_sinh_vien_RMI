@@ -22,106 +22,64 @@
 
 
 ## 📖 1. Giới thiệu hệ thống
-Ứng dụng chat Client-Server sử dụng giao thức TCP cho phép nhiều người dùng giao tiếp thời gian thực qua mạng. Server đóng vai trò trung tâm, quản lý kết nối và chuyển tiếp tin nhắn, trong khi client cung cấp giao diện người dùng để gửi và nhận tin nhắn. Dữ liệu được lưu trữ dưới dạng file văn bản thay vì cơ sở dữ liệu, giúp đơn giản hóa triển khai.
+Ứng dụng được xây dựng theo mô hình Client - Server sử dụng Java RMI để quản lý dữ liệu sinh viên, môn học và điểm số.
+Dữ liệu được lưu trữ trong SQLite database, giao diện người dùng sử dụng Java Swing với thiết kế hiện đại, trực quan.
 
-Các chức năng chính: 
-1. Kết nối và xác thực cơ bản: Client kết nối đến server qua địa chỉ IP và port (mặc định: 1234). Server hỗ trợ nhiều client đồng thời thông qua đa luồng.
-2. Gửi và nhận tin nhắn: Người dùng gửi tin nhắn từ client, server nhận và phát tán (broadcast) đến tất cả client khác, hỗ trợ chat nhóm.
-3. Lưu trữ lịch sử chat: Server lưu tin nhắn vào file chat_history.txt với định dạng [Timestamp] - [Tên người dùng]: [Nội dung]. Client mới có thể tải lịch sử từ file.
-4. Quản lý người dùng: Server theo dõi danh sách client online, cập nhật khi có kết nối/ngắt kết nối. Client hiển thị danh sách này (tùy chọn).
-5. Giao diện người dùng: Sử dụng Java Swing với cửa sổ chat gồm khu vực hiển thị tin nhắn, ô nhập văn bản và nút gửi.
-6. Xử lý lỗi: Xử lý các trường hợp như mất kết nối hoặc lỗi ghi file.
-Hệ thống sử dụng TCP để đảm bảo truyền tin nhắn đáng tin cậy, không hỗ trợ mã hóa hoặc bảo mật nâng cao trong phiên bản cơ bản.
-
+Các chức năng chính:
+1. Quản lý Sinh viên: Thêm, sửa, xóa, xem chi tiết sinh viên.
+2. Quản lý Môn học: Thêm, sửa, xóa môn học, hiển thị số lượng sinh viên đăng ký.
+3. Quản lý Điểm số: Nhập điểm, sửa điểm, xóa điểm, tính điểm trung bình tự động.
+4. Hiển thị chi tiết: Double-click để xem chi tiết sinh viên cùng bảng điểm và thông tin môn học.
+5. Xử lý lỗi & thông báo: Thông báo rõ ràng khi nhập sai định dạng, lỗi kết nối hoặc thao tác thất bại.
+6. Giao diện GUI: Thiết kế bằng Swing, hỗ trợ màu sắc, nút chức năng, bảng dữ liệu trực quan.
 ## 🔧 2. Công nghệ sử dụng
-Dưới đây là mô tả chi tiết về các công nghệ được sử dụng để xây dựng ứng dụng chat Client-Server sử dụng TCP với Java Swing, dựa trên yêu cầu của bạn:
+####🖥️ Java RMI (Remote Method Invocation)
 
-#### Java Core và Multithreading:
-Sử dụng ExecutorService (thuộc gói java.util.concurrent) để quản lý một pool các luồng (thread) trên server, cho phép xử lý đồng thời nhiều kết nối client mà không cần tạo thủ công từng Thread. Điều này giúp cải thiện hiệu suất và quản lý tài nguyên hiệu quả hơn so với sử dụng Thread trực tiếp. Ví dụ: Executors.newFixedThreadPool() được dùng để giới hạn số luồng tối đa, mỗi luồng xử lý một client.
+Được dùng để triển khai mô hình Client-Server.
+Server cung cấp dịch vụ quản lý Sinh viên, Môn học, Điểm số.
+Client gọi các phương thức từ xa (remote methods) mà không cần quan tâm đến chi tiết triển khai.
 
-#### Java Swing:
-Xây dựng giao diện đồ họa (GUI) cho client sử dụng các thành phần của gói javax.swing.*:
+####🗄️ SQLite Database
 
-    JFrame: Cửa sổ chính của ứng dụng client.
-    JTextArea: Hiển thị lịch sử tin nhắn, đặt trong JScrollPane để hỗ trợ cuộn khi số lượng tin nhắn dài.
-    JTextField: Ô nhập liệu để người dùng gõ tin nhắn.
-    JButton: Nút "Gửi" để gửi tin nhắn khi nhấn hoặc khi nhấn Enter.
-    JScrollPane: Bao quanh JTextArea để cung cấp thanh cuộn, cải thiện trải nghiệm người dùng.
+CSDL nhẹ, nhúng, dễ triển khai.
+Các bảng chính:
+- Student: Lưu thông tin sinh viên (MSV, họ tên, ngày sinh, lớp, khoa).
+- Subject: Lưu thông tin môn học (mã môn, tên môn, số tín chỉ, số lượng đăng ký).
+- Score: Lưu điểm số của sinh viên cho từng môn học.
 
-Swing cung cấp giao diện thân thiện, dễ tùy chỉnh mà không cần thư viện bên ngoài.
+####🎨 Java Swing
 
-#### Java Sockets:
-Sử dụng gói java.net.* để triển khai kết nối mạng theo giao thức TCP:
+Xây dựng giao diện người dùng (GUI).
+Các thành phần:
+- JFrame, JPanel: Tổ chức giao diện chính.
+- JTable: Hiển thị dữ liệu dạng bảng (sinh viên, môn học, điểm).
+- JButton, JTextField, JComboBox: Xử lý thao tác nhập liệu.
+- JOptionPane: Hiển thị thông báo hoặc xác nhận.
 
-    ServerSocket: Được server sử dụng để lắng nghe các kết nối đến trên một cổng cụ thể (ví dụ: port 1234). Phương thức accept() trả về Socket cho mỗi client kết nối.
-    Socket: Được client sử dụng để kết nối đến server thông qua địa chỉ IP và port.
-    DataInputStream và DataOutputStream: Xử lý việc đọc/ghi dữ liệu dạng nhị phân giữa client và server, đảm bảo truyền tin nhắn chính xác, tuần tự và không mất mát. 
+#### 📂 Mô hình đa lớp
 
-Đây là lựa chọn phù hợp khi cần truyền dữ liệu đơn giản như chuỗi văn bản.
-
-#### File I/O:
-
-Sử dụng các lớp trong gói java.io.* để lưu trữ và truy xuất lịch sử chat:
-
-    FileWriter hoặc BufferedWriter: Ghi tin nhắn vào file văn bản (ví dụ: chat_history.txt) theo chế độ append để không ghi đè dữ liệu cũ. Mỗi tin nhắn được lưu với định dạng như [Timestamp] - [Tên người dùng]: [Nội dung].
-    BufferedReader: Đọc lịch sử tin nhắn từ file để hiển thị khi client mới kết nối hoặc khi người dùng yêu cầu tải lịch sử.
-Sử dụng từ khóa synchronized hoặc Lock (từ java.util.concurrent.locks) để đảm bảo an toàn luồng (thread-safe) khi nhiều client gửi tin nhắn đồng thời, tránh xung đột ghi file.
+Model: Các lớp POJO như Student, Subject, Score.
+Service: Khai báo interface (remote) và triển khai logic (server-side).
+Client: Xây dựng giao diện, gọi service từ xa qua RMI.
+Database Util: Lớp DBUtil dùng Singleton để quản lý kết nối SQLite.
 
 #### Hỗ trợ:
-
-    java.util.Date hoặc java.time.LocalDateTime: Tạo timestamp cho mỗi tin nhắn để ghi vào file và hiển thị trên giao diện, giúp người dùng theo dõi thời gian gửi.
-    ArrayList: Quản lý danh sách các client đang kết nối trên server (lưu trữ PrintWriter hoặc DataOutputStream của từng client) để broadcast tin nhắn. Có thể mở rộng để lưu danh sách tên người dùng và trạng thái online/offline.
-Không sử dụng thư viện bên ngoài, đảm bảo ứng dụng nhẹ và dễ triển khai trên mọi môi trường Java.
+-flataf-3.6.1.jar: Thư viện hỗ trợ làm swing nhìn mượt hơn
+-sqlite-jdbc-3.50.3.0.jar: Thư viện hỗ trợ làm việc với CSDL SQLite
 
 ## 🚀 3. Hình ảnh các chức năng
 
-<p align="center">
-  <img src="docs/anhGiaoDien.jpg" alt="Ảnh 1" width="800"/>
-</p>
+<p align="center"> <img src="docs/anhStudentPanel.jpg" alt="Ảnh Student Panel" width="800"/> </p> <p align="center"> <em>Hình 1: Giao diện quản lý Sinh viên – hiển thị danh sách sinh viên, thêm, sửa, xóa, xem chi tiết.</em> </p> <p align="center"> <img src="docs/anhSubjectPanel.jpg" alt="Ảnh Subject Panel" width="800"/> </p> <p align="center"> <em>Hình 2: Giao diện quản lý Môn học – hiển thị danh sách môn học, thêm mới và chỉnh sửa thông tin môn học.</em> </p> <p align="center"> <img src="docs/anhScorePanel.jpg" alt="Ảnh Score Panel" width="800"/> </p> <p align="center"> <em>Hình 3: Giao diện quản lý Điểm số – nhập điểm cho sinh viên theo môn học, hiển thị điểm trung bình.</em> </p> <p align="center"> <img src="docs/anhStudentDetail.jpg" alt="Ảnh chi tiết sinh viên" width="700"/> </p> <p align="center"> <em>Hình 4: Hộp thoại chi tiết Sinh viên – hiển thị thông tin cá nhân và toàn bộ điểm số của sinh viên đó.</em> </p>
 
-<p align="center">
-  <em>Hình 1: Ảnh giao diện chat giữa Client-Server  Hình 2: Ảnh 2 Client chat với Server</em>
-</p>
 
-<p align="center">
-  <img src="docs/anhClientChatServer.jpg" alt="Ảnh 2" width="300"/>
-</p>
-<p align="center">
-  <em> Hình 2: Ảnh 2 Client chat với Server</em>
-</p>
+##📝 4. Hướng dẫn cài đặt và sử dụng
+###🔧 Yêu cầu hệ thống
 
-<p align="center">
-  <img src="docs/anhServertraloiClientLA.jpg" alt="Ảnh 3" width="500"/>
-    <img src="docs/anhServertraloiClientHoa.jpg" alt="Ảnh 4" width="500"/>
-</p>
-<p align="center">
-  <em> Hình 3: Ảnh Server trả lời Client Lanh - Hình 4: Ảnh Server trả lời Client Hoa</em>
-</p>
-
-<p align="center">
-  <img src="docs/anhLichSuChatLuuTxt.jpg" alt="Ảnh 5" width="500"/>
-    <img src="docs/anhServerxoaDL.jpg" alt="Ảnh 6" width="300"/>
-</p>
-<p align="center">
-  <em> Hình 5: Ảnh lịch sử chat được lưu vào file txt - Hình 5: Ảnh Server xóa dữ liệu</em>
-</p>
-
-<p align="center">
-  <img src="docs/anhServerngatKetNoiClient.jpg" alt="Ảnh 7" width="600"/>
-</p>
-<p align="center">
-  <em> Hình 7: Ảnh Server ngắt kết nối với CLient</em>
-</p>
-
-## 📝 4. Hướng dẫn cài đặt và sử dụng
-
-### 🔧 Yêu cầu hệ thống
-
-- **Java Development Kit (JDK)**: Phiên bản 8 trở lên
-- **Hệ điều hành**: Windows, macOS, hoặc Linux
-- **Môi trường phát triển**: IDE (IntelliJ IDEA, Eclipse, VS Code) hoặc terminal/command prompt
-- **Bộ nhớ**: Tối thiểu 512MB RAM
-- **Dung lượng**: Khoảng 10MB cho mã nguồn và file thực thi
+Java Development Kit (JDK): Phiên bản 8 trở lên
+Hệ điều hành: Windows, macOS, hoặc Linux
+Môi trường phát triển: IDE (IntelliJ IDEA, Eclipse, VS Code) hoặc terminal/command prompt
+Bộ nhớ: Tối thiểu 512MB RAM
+Dung lượng: Khoảng 20MB cho mã nguồn và file thực thi
 
 ### 📦 Cài đặt và triển khai
 
@@ -133,20 +91,18 @@ Không sử dụng thư viện bên ngoài, đảm bảo ứng dụng nhẹ và 
    ```
    Đảm bảo cả hai lệnh đều hiển thị phiên bản Java 8 trở lên.
 
-2. **Tải mã nguồn**: Sao chép thư mục `UngDungChat_TCP` chứa các file:
-   - `Server.java`
-   - `Client.java`
+2. **Tải mã nguồn**: 
+Qua link : 
 
 #### Bước 2: Biên dịch mã nguồn
-1. **Mở terminal** và điều hướng đến thư mục chứa mã nguồn
-2. **Biên dịch các file Java**:
+1. Mở terminal và điều hướng đến thư mục chứa src
+2. **Biên dịch toàn bộ project:**:
    ```bash
-   javac UngDungChat_TCP/*.java
+   javac src/**/*.java
    ```
-   Hoặc biên dịch từng file riêng lẻ:
+   Hoặc biên dịch từng file cụ thể (ví dụ StudentPanel.java):
    ```bash
-   javac UngDungChat_TCP/Server.java
-   javac UngDungChat_TCP/Client.java
+   javac src/client/panel/StudentPanel.java
    ```
 
 3. **Kiểm tra kết quả**: Nếu biên dịch thành công, sẽ tạo ra các file `.class` tương ứng.
@@ -154,42 +110,48 @@ Không sử dụng thư viện bên ngoài, đảm bảo ứng dụng nhẹ và 
 #### Bước 3: Chạy ứng dụng
 
 **Khởi động Server:**
-```bash
-java UngDungChat_TCP.Server
-```
-- Server sẽ khởi động trên port mặc định (1234)
-- Giao diện server sẽ hiển thị, sẵn sàng nhận kết nối từ client
-- Server sẽ tạo file `chat_history.txt` để lưu lịch sử chat
+Dùng IDLE Eclipse trong project explorer , tìm đến src -> server-> khởi chạy ServerMain.java
+- Server sẽ khởi động trên các địa chỉ được đăng ký
+
 
 **Khởi động Client:**
-```bash
-java UngDungChat_TCP.Client
-```
-- Mở terminal mới cho mỗi client
-- Nhập tên người dùng khi được yêu cầu (ví dụ: "Lanh", "Hoa", "Minh")
-- Client sẽ kết nối đến server và hiển thị giao diện chat
+Dùng IDLE Eclipse trong project explorer , tìm đến src -> client-> khởi chạy ClientMain.java
+- Khi chạy thành công thì 1 panel sẽ hiện ra thông tin của các học sinh như hình trên.
+- Người dùng sẽ có các thao tác CRUD với các học sinh.
+- khi double-click vào msv hoặc tên của 1 sinh viên thì 1 dialog hiển thị thông tin của sinh viên đó sẽ hiện ra.
 
 ### 🚀 Sử dụng ứng dụng
 
-1. **Kết nối**: Client tự động kết nối đến server sau khi nhập tên
-2. **Gửi tin nhắn**: Gõ tin nhắn vào ô nhập và nhấn Enter hoặc nút "Gửi"
-3. **Nhận tin nhắn**: Tin nhắn từ các client khác sẽ hiển thị trong khu vực chat
-4. **Lịch sử chat**: Server tự động lưu tất cả tin nhắn vào file `chat_history.txt`
-5. **Ngắt kết nối**: Đóng cửa sổ client hoặc nhấn Ctrl+C để ngắt kết nối
+### 1. Khởi động ứng dụng
 
-### ⚠️ Lưu ý quan trọng
+Chạy file Main.java, giao diện chính sẽ hiển thị.
+Mặc định có 3 panel chính:
+- 📚 Quản lý Sinh viên
+- 📘 Quản lý Môn học
+- 📝 Quản lý Điểm số
+  
+### 2. Quản lý Sinh viên
 
-- **Thứ tự khởi động**: Luôn khởi động Server trước khi chạy Client
-- **Port**: Đảm bảo port 1234 không bị sử dụng bởi ứng dụng khác
-- **Firewall**: Có thể cần cấu hình firewall để cho phép kết nối
-- **Mạng**: Server và Client phải cùng mạng hoặc có thể truy cập lẫn nhau
-- **File lịch sử**: File `chat_history.txt` sẽ được tạo tự động trong thư mục chứa Server
+Thêm mới sinh viên bằng cách nhấn ➕ Thêm → nhập thông tin và lưu.
+Sửa thông tin sinh viên bằng cách chọn 1 dòng → nhấn ✏️ Sửa.
+Xóa sinh viên bằng cách chọn dòng → nhấn 🗑 Xóa.
+Nhấn double-click vào sinh viên để xem chi tiết cùng bảng điểm.
+### 3. Quản lý Môn học
 
-### 🔧 Khắc phục sổ lỗi thường gặp
+Thêm, sửa, xóa môn học với các nút chức năng tương ứng.
+Xem danh sách tất cả môn học trong bảng.
+### 4. Quản lý Điểm số
 
-- **"Port already in use"**: Thay đổi port trong mã nguồn hoặc đóng ứng dụng đang sử dụng port
-- **"Connection refused"**: Kiểm tra Server đã khởi động chưa và địa chỉ IP có đúng không
-- **"Class not found"**: Đảm bảo đã biên dịch thành công và đang chạy từ đúng thư mục
+Gán điểm cho sinh viên theo từng môn.
+Cập nhật hoặc xóa điểm khi cần.
+Bảng hiển thị đầy đủ Mã SV, Tên SV, Môn học, Điểm.
+
+### 5. Giao diện người dùng
+
+Ứng dụng sử dụng Java Swing với giao diện thân thiện, có màu sắc và bố cục rõ ràng.
+Bảng dữ liệu hỗ trợ sắp xếp, chọn dòng, và hiển thị trực quan.
+
+
 
 © 2025 AIoTLab, Faculty of Information Technology, DaiNam University. All rights reserved.
 
