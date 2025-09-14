@@ -5,7 +5,7 @@
     </a>
 </h2>
 <h2 align="center">
-   XÂY DỰNG ỨNG DỤNG CHAT CLIENT-SERVER SỬ DỤNG GIAO THỨC TCP
+   QUẢN LÝ SINH VIÊM BẰNG RMI
 </h2>
 <div align="center">
     <p align="center">
@@ -132,19 +132,19 @@ Mặc định có 3 panel chính:
   
 ### 2. Quản lý Sinh viên
 
-1. Thêm mới sinh viên bằng cách nhấn ➕ Thêm → nhập thông tin và lưu.
-2. Sửa thông tin sinh viên bằng cách chọn 1 dòng → nhấn ✏️ Sửa.
-3. Xóa sinh viên bằng cách chọn dòng → nhấn 🗑 Xóa.
-4. Nhấn double-click vào sinh viên để xem chi tiết cùng bảng điểm.
+- Thêm mới sinh viên bằng cách nhấn ➕ Thêm → nhập thông tin và lưu.
+- Sửa thông tin sinh viên bằng cách chọn 1 dòng → nhấn ✏️ Sửa.
+- Xóa sinh viên bằng cách chọn dòng → nhấn 🗑 Xóa.
+- Nhấn double-click vào sinh viên để xem chi tiết cùng bảng điểm.
 ### 3. Quản lý Môn học
 
-1. Thêm, sửa, xóa môn học với các nút chức năng tương ứng.
-2. Xem danh sách tất cả môn học trong bảng.
+- Thêm, sửa, xóa môn học với các nút chức năng tương ứng.
+- Xem danh sách tất cả môn học trong bảng.
 ### 4. Quản lý Điểm số
 
-1. Gán điểm cho sinh viên theo từng môn.
-2. Cập nhật hoặc xóa điểm khi cần.
-3. Bảng hiển thị đầy đủ Mã SV, Tên SV, Môn học, Điểm.
+- Gán điểm cho sinh viên theo từng môn.
+- Cập nhật hoặc xóa điểm khi cần.
+- Bảng hiển thị đầy đủ Mã SV, Tên SV, Môn học, Điểm.
 
 ### 5. Giao diện người dùng
 
