@@ -75,11 +75,11 @@ Database Util: Lớp DBUtil dùng Singleton để quản lý kết nối SQLite.
 ##📝 4. Hướng dẫn cài đặt và sử dụng
 ###🔧 Yêu cầu hệ thống
 
-Java Development Kit (JDK): Phiên bản 8 trở lên
-Hệ điều hành: Windows, macOS, hoặc Linux
-Môi trường phát triển: IDE (IntelliJ IDEA, Eclipse, VS Code) hoặc terminal/command prompt
-Bộ nhớ: Tối thiểu 512MB RAM
-Dung lượng: Khoảng 20MB cho mã nguồn và file thực thi
+- Java Development Kit (JDK): Phiên bản 8 trở lên
+- Hệ điều hành: Windows, macOS, hoặc Linux
+- Môi trường phát triển: IDE (IntelliJ IDEA, Eclipse, VS Code) hoặc terminal/command prompt
+- Bộ nhớ: Tối thiểu 512MB RAM
+-  Dung lượng: Khoảng 20MB cho mã nguồn và file thực thi
 
 ### 📦 Cài đặt và triển khai
 
@@ -132,24 +132,24 @@ Mặc định có 3 panel chính:
   
 ### 2. Quản lý Sinh viên
 
-Thêm mới sinh viên bằng cách nhấn ➕ Thêm → nhập thông tin và lưu.
-Sửa thông tin sinh viên bằng cách chọn 1 dòng → nhấn ✏️ Sửa.
-Xóa sinh viên bằng cách chọn dòng → nhấn 🗑 Xóa.
-Nhấn double-click vào sinh viên để xem chi tiết cùng bảng điểm.
+1. Thêm mới sinh viên bằng cách nhấn ➕ Thêm → nhập thông tin và lưu.
+2. Sửa thông tin sinh viên bằng cách chọn 1 dòng → nhấn ✏️ Sửa.
+3. Xóa sinh viên bằng cách chọn dòng → nhấn 🗑 Xóa.
+4. Nhấn double-click vào sinh viên để xem chi tiết cùng bảng điểm.
 ### 3. Quản lý Môn học
 
-Thêm, sửa, xóa môn học với các nút chức năng tương ứng.
-Xem danh sách tất cả môn học trong bảng.
+1. Thêm, sửa, xóa môn học với các nút chức năng tương ứng.
+2. Xem danh sách tất cả môn học trong bảng.
 ### 4. Quản lý Điểm số
 
-Gán điểm cho sinh viên theo từng môn.
-Cập nhật hoặc xóa điểm khi cần.
-Bảng hiển thị đầy đủ Mã SV, Tên SV, Môn học, Điểm.
+1. Gán điểm cho sinh viên theo từng môn.
+2. Cập nhật hoặc xóa điểm khi cần.
+3. Bảng hiển thị đầy đủ Mã SV, Tên SV, Môn học, Điểm.
 
 ### 5. Giao diện người dùng
 
-Ứng dụng sử dụng Java Swing với giao diện thân thiện, có màu sắc và bố cục rõ ràng.
-Bảng dữ liệu hỗ trợ sắp xếp, chọn dòng, và hiển thị trực quan.
+- Ứng dụng sử dụng Java Swing với giao diện thân thiện, có màu sắc và bố cục rõ ràng.
+- Bảng dữ liệu hỗ trợ sắp xếp, chọn dòng, và hiển thị trực quan.
 
 
 
