@@ -72,7 +72,7 @@ Database Util: Lớp DBUtil dùng Singleton để quản lý kết nối SQLite.
 <p align="center"> <img src="docs/anhStudentPanel.png" alt="Ảnh Student Panel" width="800"/> </p> <p align="center"> <em>Hình 1: Giao diện quản lý Sinh viên – hiển thị danh sách sinh viên, thêm, sửa, xóa, xem chi tiết.</em> </p> <p align="center"> <img src="docs/anhSubjectPanel.png" alt="Ảnh Subject Panel" width="800"/> </p> <p align="center"> <em>Hình 2: Giao diện quản lý Môn học – hiển thị danh sách môn học, thêm mới và chỉnh sửa thông tin môn học.</em> </p> <p align="center"> <img src="docs/anhScorePanel.png" alt="Ảnh Score Panel" width="800"/> </p> <p align="center"> <em>Hình 3: Giao diện quản lý Điểm số – nhập điểm cho sinh viên theo môn học, hiển thị điểm trung bình.</em> </p> <p align="center"> <img src="docs/anhStudentDetail.png" alt="Ảnh chi tiết sinh viên" width="700"/> </p> <p align="center"> <em>Hình 4: Hộp thoại chi tiết Sinh viên – hiển thị thông tin cá nhân và toàn bộ điểm số của sinh viên đó.</em> </p>
 
 
-##📝 4. Hướng dẫn cài đặt và sử dụng
+## 📝 4. Hướng dẫn cài đặt và sử dụng
 
 ###🔧 Yêu cầu hệ thống
 
@@ -153,7 +153,7 @@ Mặc định có 3 panel chính:
 
 - Ứng dụng sử dụng Java Swing với giao diện thân thiện, có màu sắc và bố cục rõ ràng.
 - Bảng dữ liệu hỗ trợ sắp xếp, chọn dòng, và hiển thị trực quan.
-## Liên Hệ
+## 5. Liên Hệ
 - Họ tên: Vũ Giang Nam
 - Lớp : CNTT16-03
 - Email: giangnamvn555@gmail.com
