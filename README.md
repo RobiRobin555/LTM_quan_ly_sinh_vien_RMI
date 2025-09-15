@@ -92,8 +92,10 @@ Database Util: Lớp DBUtil dùng Singleton để quản lý kết nối SQLite.
    ```
    Đảm bảo cả hai lệnh đều hiển thị phiên bản Java 8 trở lên.
 
-2. **Tải mã nguồn**: 
-Qua link : 
+2. **Tải mã nguồn**:
+   ```bash
+   git clone git@github.com:RobiRobin555/LTM_quan_ly_sinh_vien_RMI.git
+   ``` 
 
 #### Bước 2: Biên dịch mã nguồn
 1. Mở terminal và điều hướng đến thư mục chứa src
