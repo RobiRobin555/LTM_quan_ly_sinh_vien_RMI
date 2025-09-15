@@ -94,7 +94,7 @@ Database Util: Lớp DBUtil dùng Singleton để quản lý kết nối SQLite.
 
 2. **Tải mã nguồn**:
    ```bash
-   git clone git@github.com:RobiRobin555/LTM_quan_ly_sinh_vien_RMI.git
+   git clone https://github.com/RobiRobin555/LTM_quan_ly_sinh_vien_RMI.git
    ``` 
 
 #### Bước 2: Biên dịch mã nguồn
