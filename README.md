@@ -5,7 +5,7 @@
     </a>
 </h2>
 <h2 align="center">
-   QUẢN LÝ SINH VIÊM BẰNG RMI
+   QUẢN LÝ SINH VIÊN BẰNG RMI
 </h2>
 <div align="center">
     <p align="center">
