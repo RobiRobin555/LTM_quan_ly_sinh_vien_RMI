@@ -153,7 +153,7 @@ Mặc định có 3 panel chính:
 
 - Ứng dụng sử dụng Java Swing với giao diện thân thiện, có màu sắc và bố cục rõ ràng.
 - Bảng dữ liệu hỗ trợ sắp xếp, chọn dòng, và hiển thị trực quan.
-## Thông tin cá nhân
+## Liên Hệ
 - Họ tên: Vũ Giang Nam
 - Lớp : CNTT16-03
 - Email: giangnamvn555@gmail.com
