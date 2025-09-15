@@ -153,9 +153,13 @@ Mặc định có 3 panel chính:
 
 - Ứng dụng sử dụng Java Swing với giao diện thân thiện, có màu sắc và bố cục rõ ràng.
 - Bảng dữ liệu hỗ trợ sắp xếp, chọn dòng, và hiển thị trực quan.
+## Thông tin cá nhân
+- Họ tên: Vũ Giang Nam
+- Lớp : CNTT16-03
+- Email: giangnamvn555@gmail.com
+- SDT:0369864785
 
-
-
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 © 2025 AIoTLab, Faculty of Information Technology, DaiNam University. All rights reserved.
 
 ---
