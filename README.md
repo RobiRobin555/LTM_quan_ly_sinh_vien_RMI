@@ -64,8 +64,8 @@ Client: Xây dựng giao diện, gọi service từ xa qua RMI.
 Database Util: Lớp DBUtil dùng Singleton để quản lý kết nối SQLite.
 
 #### Hỗ trợ:
--flataf-3.6.1.jar: Thư viện hỗ trợ làm swing nhìn mượt hơn
--sqlite-jdbc-3.50.3.0.jar: Thư viện hỗ trợ làm việc với CSDL SQLite
+- flataf-3.6.1.jar: Thư viện hỗ trợ làm swing nhìn mượt hơn.
+- sqlite-jdbc-3.50.3.0.jar: Thư viện hỗ trợ làm việc với CSDL SQLite.
 
 ## 🚀 3. Hình ảnh các chức năng
 
@@ -74,7 +74,7 @@ Database Util: Lớp DBUtil dùng Singleton để quản lý kết nối SQLite.
 
 ## 📝 4. Hướng dẫn cài đặt và sử dụng
 
-###🔧 Yêu cầu hệ thống
+### 🔧 Yêu cầu hệ thống
 
 - Java Development Kit (JDK): Phiên bản 8 trở lên
 - Hệ điều hành: Windows, macOS, hoặc Linux
@@ -157,9 +157,9 @@ Mặc định có 3 panel chính:
 - Bảng dữ liệu hỗ trợ sắp xếp, chọn dòng, và hiển thị trực quan.
 ## 5. Liên Hệ
 - Họ tên: Vũ Giang Nam
-- Lớp : CNTT16-03
+- Lớp: CNTT16-03
 - Email: giangnamvn555@gmail.com
-- SDT:0369864785
+- SDT: 0369864785
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 © 2025 AIoTLab, Faculty of Information Technology, DaiNam University. All rights reserved.
