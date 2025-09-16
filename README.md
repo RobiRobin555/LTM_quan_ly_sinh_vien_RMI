@@ -35,26 +35,9 @@ Các chức năng chính:
 ## 🔧 2. Công nghệ sử dụng
 ### 🖥️ Java RMI (Remote Method Invocation)
 
-Được dùng để triển khai mô hình Client-Server.
-Server cung cấp dịch vụ quản lý Sinh viên, Môn học, Điểm số.
-Client gọi các phương thức từ xa (remote methods) mà không cần quan tâm đến chi tiết triển khai.
-
 ### 🗄️ SQLite Database
 
-CSDL nhẹ, nhúng, dễ triển khai.
-Các bảng chính:
-- Student: Lưu thông tin sinh viên (MSV, họ tên, ngày sinh, lớp, khoa).
-- Subject: Lưu thông tin môn học (mã môn, tên môn, số tín chỉ, số lượng đăng ký).
-- Score: Lưu điểm số của sinh viên cho từng môn học.
-
 ### 🎨 Java Swing
-
-Xây dựng giao diện người dùng (GUI).
-Các thành phần:
-- JFrame, JPanel: Tổ chức giao diện chính.
-- JTable: Hiển thị dữ liệu dạng bảng (sinh viên, môn học, điểm).
-- JButton, JTextField, JComboBox: Xử lý thao tác nhập liệu.
-- JOptionPane: Hiển thị thông báo hoặc xác nhận.
 
 ### 📂 Mô hình đa lớp
 
